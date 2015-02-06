@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,8 +31,15 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
 
         }
         TextView tvCaption = (TextView)convertView.findViewById(R.id.tvCaption);
+        TextView tvLikes = (TextView)convertView.findViewById(R.id.tvLikes);
+        TextView tvUser = (TextView)convertView.findViewById(R.id.tvUser);
+        ImageView imProfile = (ImageView)convertView.findViewById(R.id.imProfile);
         ImageView ivPhoto = (ImageView)convertView.findViewById(R.id.ivPhoto);
         tvCaption.setText(photo.caption);
+        tvLikes.setText("* Likes " + photo.likesCount);
+        tvUser.setText(photo.username);
+        imProfile.setImageResource(0);
+        Picasso.with(getContext()).load(photo.profilepic).into(imProfile);
         ivPhoto.setImageResource(0);
         Picasso.with(getContext()).load(photo.imageurl).into(ivPhoto);
         return convertView;

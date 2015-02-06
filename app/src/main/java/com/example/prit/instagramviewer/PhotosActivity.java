@@ -54,6 +54,7 @@ public void fetchPopularPhotos(){
                             InstagramPhoto photo = new InstagramPhoto();
                             photo.username = photoJSON.getJSONObject("user").getString("username");
                             photo.caption = photoJSON.getJSONObject("caption").getString("text");
+                            photo.profilepic = photoJSON.getJSONObject("user").getString("profile_picture");
                             photo.imageurl = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getString("url");
                             photo.imageheight = photoJSON.getJSONObject("images").getJSONObject("standard_resolution").getInt("height");
                             photo.likesCount = photoJSON.getJSONObject("likes").getInt("count");
